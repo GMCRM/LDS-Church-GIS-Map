@@ -1,0 +1,264 @@
+/* LDS Church Buildings Map - Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #f7f7f7;
+}
+
+/* Header */
+
+header {
+  background: #1f2937;
+  color: white;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  z-index: 2;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+header p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Controls Panel */
+
+#controls-panel {
+  background: white;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 2;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.control-group label {
+  font-weight: 600;
+  color: #333;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #3b82f6;
+  background: #f8fafc;
+  color: #1f2937;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.filter-btn:hover {
+  background: #e5edff;
+}
+
+.filter-btn.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.stats {
+  color: #666;
+  font-weight: 500;
+}
+
+/* Map Container */
+
+#viewDiv {
+  flex: 1;
+  width: 100%;
+  position: relative;
+}
+
+/* Loading Spinner */
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: white;
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.spinner.hidden {
+  display: none;
+}
+
+.spinner-icon {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #e5e7eb;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner p {
+  color: #666;
+  font-weight: 500;
+}
+
+/* Error Message */
+
+.error-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: #fee;
+  border: 2px solid #f44;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(244, 68, 68, 0.2);
+}
+
+.error-message.hidden {
+  display: none;
+}
+
+.error-message p {
+  color: #c00;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Legend */
+
+.legend {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  z-index: 100;
+  min-width: 160px;
+}
+
+.legend h3 {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: #333;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 0.5rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0.6rem 0;
+}
+
+.legend-icon {
+  font-size: 1.5rem;
+  width: 30px;
+  text-align: center;
+}
+
+.legend-item span:last-child {
+  color: #555;
+  font-weight: 500;
+}
+
+/* Custom Popup Styles */
+
+.esri-popup__header-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.popup-content {
+  padding: 0.5rem 0;
+}
+
+.popup-row {
+  margin: 0.5rem 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.popup-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.popup-value {
+  color: #333;
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  #controls-panel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .control-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .filter-btn {
+    width: 100%;
+  }
+
+  .legend {
+    bottom: 15px;
+    right: 15px;
+    left: 15px;
+  }
+}

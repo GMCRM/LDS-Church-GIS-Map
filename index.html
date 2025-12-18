@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LDS Church Buildings Map</title>
+
+    <!-- ArcGIS JS API CSS -->
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.28/esri/themes/light/main.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- ArcGIS JS API -->
+    <script src="https://js.arcgis.com/4.28/"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1>LDS Church Buildings Map</h1>
+      <p>Temples and meetinghouses near you</p>
+    </header>
+
+    <!-- Controls Panel -->
+    <div id="controls-panel">
+      <div class="control-group">
+        <label>Filter Buildings:</label>
+        <div class="button-group">
+          <button id="btn-all" class="filter-btn active">Show All</button>
+          <button id="btn-temples" class="filter-btn">Temples Only</button>
+          <button id="btn-meetinghouses" class="filter-btn">
+            Meetinghouses Only
+          </button>
+        </div>
+      </div>
+
+      <div class="stats">
+        <span id="stats-text">Loading...</span>
+      </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="spinner">
+      <div class="spinner-icon"></div>
+      <p>Loading church buildings...</p>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="error-message hidden">
+      <p>⚠️ Failed to load data. Please try again later.</p>
+    </div>
+
+    <!-- Map Container -->
+    <div id="viewDiv"></div>
+
+    <!-- Legend -->
+    <div id="legend" class="legend">
+      <h3>Legend</h3>
+      <div class="legend-item">
+        <span
+          class="legend-icon"
+          style="
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 215, 0, 0.8);
+            border: 2px solid white;
+            transform: rotate(45deg);
+          "
+        ></span>
+        <span>Temple</span>
+      </div>
+      <div class="legend-item">
+        <span
+          class="legend-icon"
+          style="
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: rgba(65, 105, 225, 0.8);
+            border: 2px solid white;
+            border-radius: 50%;
+          "
+        ></span>
+        <span>Meetinghouse</span>
+      </div>
+    </div>
+    <!-- JavaScript Modules -->
+    <script src="utils.js"></script>
+    <script src="api.js"></script>
+    <script src="map.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
